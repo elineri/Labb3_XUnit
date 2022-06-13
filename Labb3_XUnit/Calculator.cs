@@ -10,11 +10,11 @@ namespace Labb3_XUnit
         {
             List<int> numbers = new List<int>();
 
-            Console.WriteLine("Ange första tal: ");
+            Console.Write("  First number: ");
             int num1 = Int32.Parse(Console.ReadLine());
             numbers.Add(num1);
 
-            Console.WriteLine("Ange andra tal: ");
+            Console.Write("  Second number: ");
             int num2 = Int32.Parse(Console.ReadLine());
             numbers.Add(num2);
 
@@ -23,25 +23,25 @@ namespace Labb3_XUnit
 
         public static double Addition(int num1, int num2)
         {
-            Console.Write($"  {num1} + {num2}");
+            Console.Write($"\n  {num1} + {num2}");
             return num1 + num2;
         }
 
         public static double Subtraction(int num1, int num2)
         {
-            Console.Write($"  {num1} - {num2}");
+            Console.Write($"\n  {num1} - {num2}");
             return num1 - num2;
         }
 
         public static double Division(int num1, int num2)
         {
-            Console.Write($"  {num1} / {num2}");
+            Console.Write($"\n  {num1} / {num2}");
             return num1 / num2;
         }
 
         public static double Multiplication(int num1, int num2)
         {
-            Console.Write($"  {num1} * {num2}");
+            Console.Write($"\n  {num1} * {num2}");
             return num1 * num2;
         }
 

@@ -17,8 +17,9 @@ namespace Labb3_XUnit
                 "  1. Addition\n" +
                 "  2. Subtraction\n" +
                 "  3. Divison\n" +
-                "  4. Multiplication\n");
-                Console.Write("  Choose option: ");
+                "  4. Multiplication\n" +
+                "  5. Previous calculations\n");
+                Console.Write("  Select: ");
                 int select = 0;
                 try
                 {
@@ -33,21 +34,25 @@ namespace Labb3_XUnit
                 {
                     case 1:
                         Console.Clear();
+                        Console.WriteLine("  + ADDITION +\n");
                         numbers = Calculator.GetInput();
                         Calculator.PrintResult(Calculator.Addition(numbers[0], numbers[1]));
                         break;
                     case 2:
                         Console.Clear();
+                        Console.WriteLine("  - SUBTRACTION -\n");
                         numbers = Calculator.GetInput();
                         Calculator.PrintResult(Calculator.Subtraction(numbers[0], numbers[1]));
                         break;
                     case 3:
                         Console.Clear();
+                        Console.WriteLine("  / Division /\n");
                         numbers = Calculator.GetInput();
                         Calculator.PrintResult(Calculator.Division(numbers[0], numbers[1]));
                         break;
                     case 4:
                         Console.Clear();
+                        Console.WriteLine("  * Multiplication *\n");
                         numbers = Calculator.GetInput();
                         Calculator.PrintResult(Calculator.Multiplication(numbers[0], numbers[1]));
                         break;

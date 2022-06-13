@@ -21,29 +21,33 @@ namespace Labb3_XUnit
             return numbers;
         }
 
-        public static void Addition(int num1, int num2)
+        public static double Addition(int num1, int num2)
         {
-            double result = num1 + num2;
+            Console.Write($"  {num1} + {num2}");
+            return num1 + num2;
         }
 
-        public static void Subtraction(int num1, int num2)
+        public static double Subtraction(int num1, int num2)
         {
-            double result = num1 - num2;
+            Console.Write($"  {num1} - {num2}");
+            return num1 - num2;
         }
 
-        public static void Division(int num1, int num2)
+        public static double Division(int num1, int num2)
         {
-            double result = num1 / num2;
+            Console.Write($"  {num1} / {num2}");
+            return num1 / num2;
         }
 
-        public static void Multiplication(int num1, int num2)
+        public static double Multiplication(int num1, int num2)
         {
-            double result = num1 * num2;
+            Console.Write($"  {num1} * {num2}");
+            return num1 * num2;
         }
 
-        public void PrintCalculationResult(double result)
+        public static void PrintResult(double result)
         {
-            Console.WriteLine(result);
+            Console.Write($" = {result}");
         }
     }
 }

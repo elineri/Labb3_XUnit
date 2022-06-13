@@ -13,7 +13,7 @@ namespace Labb3_XUnit
 
             while (run)
             {
-                Console.WriteLine("  \tCALCULATOR" +
+                Console.WriteLine("  \tCALCULATOR\n\n" +
                 "  1. Addition\n" +
                 "  2. Subtraction\n" +
                 "  3. Divison\n" +
@@ -34,28 +34,29 @@ namespace Labb3_XUnit
                     case 1:
                         Console.Clear();
                         numbers = Calculator.GetInput();
-                        Calculator.Addition(numbers[0], numbers[1]);
+                        Calculator.PrintResult(Calculator.Addition(numbers[0], numbers[1]));
                         break;
                     case 2:
                         Console.Clear();
                         numbers = Calculator.GetInput();
-                        Calculator.Subtraction(numbers[0], numbers[1]);
+                        Calculator.PrintResult(Calculator.Subtraction(numbers[0], numbers[1]));
                         break;
                     case 3:
                         Console.Clear();
                         numbers = Calculator.GetInput();
-                        Calculator.Division(numbers[0], numbers[1]);
+                        Calculator.PrintResult(Calculator.Division(numbers[0], numbers[1]));
                         break;
                     case 4:
                         Console.Clear();
                         numbers = Calculator.GetInput();
-                        Calculator.Multiplication(numbers[0], numbers[1]);
+                        Calculator.PrintResult(Calculator.Multiplication(numbers[0], numbers[1]));
                         break;
                     default:
                         break;
                 }
 
                 Console.ReadKey();
+                Console.Clear();
             }
             
         }

@@ -9,7 +9,8 @@ namespace Labb3_XUnit
         public static void MenuSelection()
         {
             bool run = true;
-            List<int> numbers = new List<int>();
+            List<double> numbers = new List<double>();
+            List<string> calculations = new List<string>();
 
             while (run)
             {
@@ -35,26 +36,53 @@ namespace Labb3_XUnit
                     case 1:
                         Console.Clear();
                         Console.WriteLine("  + ADDITION +\n");
+
                         numbers = Calculator.GetInput();
-                        Calculator.PrintResult(Calculator.Addition(numbers[0], numbers[1]));
+                        calculations.Add(numbers[0].ToString());
+                        calculations.Add("+");
+                        calculations.Add(numbers[1].ToString());
+
+                        calculations.Add(Calculator.PrintResult(Calculator.Addition(numbers[0], numbers[1])).ToString());
                         break;
                     case 2:
                         Console.Clear();
                         Console.WriteLine("  - SUBTRACTION -\n");
+
                         numbers = Calculator.GetInput();
-                        Calculator.PrintResult(Calculator.Subtraction(numbers[0], numbers[1]));
+                        calculations.Add(numbers[0].ToString());
+                        calculations.Add("-");
+                        calculations.Add(numbers[1].ToString());
+
+                        calculations.Add(Calculator.PrintResult(Calculator.Subtraction(numbers[0], numbers[1])).ToString());
                         break;
                     case 3:
                         Console.Clear();
                         Console.WriteLine("  / Division /\n");
+
                         numbers = Calculator.GetInput();
-                        Calculator.PrintResult(Calculator.Division(numbers[0], numbers[1]));
+                        calculations.Add(numbers[0].ToString());
+                        calculations.Add("/");
+                        calculations.Add(numbers[1].ToString());
+
+                        calculations.Add(Calculator.PrintResult(Calculator.Division(numbers[0], numbers[1])).ToString());
                         break;
                     case 4:
                         Console.Clear();
                         Console.WriteLine("  * Multiplication *\n");
+
                         numbers = Calculator.GetInput();
-                        Calculator.PrintResult(Calculator.Multiplication(numbers[0], numbers[1]));
+                        calculations.Add(numbers[0].ToString());
+                        calculations.Add("*");
+                        calculations.Add(numbers[1].ToString());
+
+                        calculations.Add(Calculator.PrintResult(Calculator.Multiplication(numbers[0], numbers[1])).ToString());
+                        break;
+
+                    case 5:
+                        Console.Clear();
+                        Console.WriteLine("  PREVIOUS CALCULATIONS");
+
+                        Calculator.PrintAllCalculations(calculations);
                         break;
                     default:
                         break;

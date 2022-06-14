@@ -6,49 +6,40 @@ namespace Labb3_XUnit
 {
     public class Calculator
     {
-        public static List<double> GetInput()
+        public static double UserInput(string num)
         {
-            List<double> numbers = new List<double>();
-
-            Console.Write("  First number: ");
-            int num1 = Int32.Parse(Console.ReadLine());
-            numbers.Add(num1);
-
-            Console.Write("  Second number: ");
-            int num2 = Int32.Parse(Console.ReadLine());
-            numbers.Add(num2);
-
-            return numbers;
+            return Int32.Parse(num);
         }
 
         public static double Addition(double num1, double num2)
         {
-            Console.Write($"\n  {num1} + {num2}");
             return num1 + num2;
         }
 
         public static double Subtraction(double num1, double num2)
         {
-            Console.Write($"\n  {num1} - {num2}");
             return num1 - num2;
         }
 
         public static double Division(double num1, double num2)
         {
-            Console.Write($"\n  {num1} / {num2}");
+            if (num2 == 0)
+            {
+                throw new ArgumentNullException(nameof(num2));
+            }
             return num1 / num2;
         }
 
         public static double Multiplication(double num1, double num2)
         {
-            Console.Write($"\n  {num1} * {num2}");
             return num1 * num2;
         }
 
-        public static double PrintResult(double result)
+        public static string PrintResult(double num1, double num2, double result, string calcType)
         {
-            Console.Write($" = {result}");
-            return result;
+            Console.Write($"  {num1} {calcType} {num2} = {result}");
+            string calculation = num1.ToString() + calcType + num2.ToString() + result.ToString(); 
+            return calculation;
         }
 
         public static void PrintAllCalculations(List<string> calculations)

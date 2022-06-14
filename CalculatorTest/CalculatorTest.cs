@@ -149,5 +149,31 @@ namespace CalculatorTest
             Assert.Equal(expectedResult, actual);
         }
 
+        [Fact]
+        [Trait("Category", "UserInput")]
+        public void UserInput_string_Return_type_double()
+        {
+            // Arrange
+            string testInput = "3,2";
+
+            // Act
+            var actual = Calculator.UserInput(testInput);
+
+            // Assert
+            Assert.IsType<double>(actual);
+        }
+
+        [Theory]
+        [Trait("Category", "UserInput")]
+        [InlineData("5,1", 5.1)]
+        [InlineData("-1000", -1000)]
+        [InlineData("0,4", 0.4)]
+        [InlineData("-0,4", -0.4)]
+        [InlineData("0", 0)]
+        public void UserInput(string testinput, double expectedResult)
+        {
+            // Act + Assert
+            Assert.Equal(expectedResult, Calculator.UserInput(testinput));
+        }
     }
 }

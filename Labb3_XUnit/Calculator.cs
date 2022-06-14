@@ -8,7 +8,7 @@ namespace Labb3_XUnit
     {
         public static double UserInput(string num)
         {
-            return Int32.Parse(num);
+            return Double.Parse(num);
         }
 
         public static double Addition(double num1, double num2)

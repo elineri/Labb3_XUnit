@@ -150,7 +150,7 @@ namespace CalculatorTest
         }
 
         [Fact]
-        [Trait("Category", "UserInput")]
+        [Trait("Category", "User input")]
         public void UserInput_string_Return_type_double()
         {
             // Arrange
@@ -164,7 +164,7 @@ namespace CalculatorTest
         }
 
         [Theory]
-        [Trait("Category", "UserInput")]
+        [Trait("Category", "User input")]
         [InlineData("5,1", 5.1)]
         [InlineData("-1000", -1000)]
         [InlineData("0,4", 0.4)]
@@ -174,6 +174,36 @@ namespace CalculatorTest
         {
             // Act + Assert
             Assert.Equal(expectedResult, Calculator.UserInput(testinput));
+        }
+
+        //TODO: Exception UserInput for other than double
+
+        [Fact]
+        [Trait("Category", "Print result")]
+        public void PrintResult_10_Divided_With_5_Is_2()
+        {
+            // Arrange
+            double testNum1 = 10;
+            double testNum2 = 5;
+            double calculationResult = 2;
+            string calcType = "/";
+            var expected = "10 / 5 = 2";
+
+            // Act
+            var actual = Calculator.PrintResult(testNum1, testNum2, calculationResult, calcType);
+
+            // Assert
+            Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [Trait("Category", "Print result")]
+        [InlineData(100,13,113,"+", "100 + 13 = 113")]
+        [InlineData(100,13,87,"-", "100 - 13 = 87")]
+        public void PrintResultTest(double num1, double num2, double calculationResult, string calcType, string expectedResult)
+        {
+            // Act + Assert
+            Assert.Equal(expectedResult, Calculator.PrintResult(num1, num2, calculationResult, calcType));
         }
     }
 }

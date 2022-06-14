@@ -38,15 +38,15 @@ namespace Labb3_XUnit
         public static string PrintResult(double num1, double num2, double result, string calcType)
         {
             Console.Write($"  {num1} {calcType} {num2} = {result}");
-            string calculation = num1.ToString() + calcType + num2.ToString() + result.ToString(); 
+            string calculation = num1.ToString() + " " + calcType + " " + num2.ToString() + " = " + result.ToString(); 
             return calculation;
         }
 
         public static void PrintAllCalculations(List<string> calculations)
         {
-            for (int i = 0; i < calculations.Count; i+=4)
+            foreach (var calculation in calculations)
             {
-                Console.WriteLine($"  {calculations[i]} {calculations[i+1]} {calculations[i+2]} = {calculations[i+3]}");
+                Console.WriteLine("  " + calculation);
             }
         }
     }

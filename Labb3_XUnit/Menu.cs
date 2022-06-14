@@ -8,7 +8,6 @@ namespace Labb3_XUnit
     {
         public static void MenuSelection()
         {
-            List<double> numbers = new List<double>();
             List<string> calculations = new List<string>();
             string calcType;
             double num1 = 0;
@@ -36,6 +35,7 @@ namespace Labb3_XUnit
 
                 if (select != 5)
                 {
+                    Console.Clear();
                     // User input
                     Console.Write("  Please enter first number: ");
                     num1 = Calculator.UserInput(Console.ReadLine());
@@ -48,28 +48,24 @@ namespace Labb3_XUnit
                 {
                     case 1: // Addition
                         Console.Clear();
-                        Console.WriteLine("  + ADDITION +\n");
                         calcType = "+";
 
                         calculations.Add(Calculator.PrintResult(num1, num2, Calculator.Addition(num1, num2), calcType));
                         break;
                     case 2: // Subtraction
                         Console.Clear();
-                        Console.WriteLine("  - SUBTRACTION -\n");
                         calcType = "-";
 
                         calculations.Add(Calculator.PrintResult(num1, num2, Calculator.Subtraction(num1, num2), calcType));
                         break;
                     case 3: // Division
                         Console.Clear();
-                        Console.WriteLine("  / Division /\n");
                         calcType = "/";
 
                         calculations.Add(Calculator.PrintResult(num1, num2, Calculator.Division(num1, num2), calcType));
                         break;
                     case 4:  // Multiplication
                         Console.Clear();
-                        Console.WriteLine("  * Multiplication *\n");
                         calcType = "*";
 
                         calculations.Add(Calculator.PrintResult(num1, num2, Calculator.Multiplication(num1, num2), calcType));

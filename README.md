@@ -23,13 +23,10 @@ Kurs Systemtestning - XUnit för miniräknare
 - Give input 1 and press Enter for second number
 - The console should print "10 + 1 = 11"
 - Press Enter to return to menu
-- Give input 1 and press Enter to select Multiplication
+- Give input 4 and press Enter to select Multiplication
 - Give input 10 and press Enter for first number
 - Give input 10 and press Enter for second number
 - The console should print "10 * 10 = 100"
 - Press Enter to return to menu
 - Give input 5 and press Enter to select Previous calculations
-- The console should print:
-  Previous calculations
-  10 + 1 = 11
-  10 * 10 = 100
+- The console should print "10 + 1 = 11" and "10 * 10 = 100"

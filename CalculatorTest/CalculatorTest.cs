@@ -9,7 +9,7 @@ namespace CalculatorTest
     {
         [Fact]
         [Trait("Category", "Addition")]
-        public void Add_2_AND_5_Return_7()
+        public void Add_2_And_5_Return_7()
         {
             // Assert
             int num1 = 2;
@@ -42,7 +42,7 @@ namespace CalculatorTest
 
         [Fact]
         [Trait("Category", "Subtraction")]
-        public void Subtract_2_FROM_5_Return_3()
+        public void Subtract_2_From_5_Return_3()
         {
             // Assert
             int num1 = 5;
@@ -76,7 +76,7 @@ namespace CalculatorTest
 
         [Fact]
         [Trait("Category", "Divison")]
-        public void Divide_10_WITH_2_Return_5()
+        public void Divide_10_With_2_Return_5()
         {
             // Assert
             int num1 = 10;
@@ -120,7 +120,7 @@ namespace CalculatorTest
 
         [Fact]
         [Trait("Category", "Multiplication")]
-        public void Multiply_3_WITH_7_Return_21()
+        public void Multiply_3_With_7_Return_21()
         {
             // Assert
             int num1 = 3;
@@ -152,7 +152,7 @@ namespace CalculatorTest
 
         [Fact]
         [Trait("Category", "User input")]
-        public void UserInput_string_Return_type_decimal()
+        public void UserInput_String_Return_Parsed_To_Decimal()
         {
             // Arrange
             string testInput = "3,2";
@@ -171,7 +171,7 @@ namespace CalculatorTest
         [InlineData("0,4", 0.4)]
         [InlineData("-0,4", -0.4)]
         [InlineData("0", 0)]
-        public void UserInput(string testinput, decimal expectedResult)
+        public void UserInput_Test(string testinput, decimal expectedResult)
         {
             // Act + Assert
             Assert.Equal(expectedResult, Calculator.UserInput(testinput));
@@ -179,7 +179,7 @@ namespace CalculatorTest
 
         [Fact]
         [Trait("Category", "User input")]
-        public void UserInput_Not_a_number_input_Throws()
+        public void UserInput_Not_A_Number_Throws()
         {
             // Assert
             string testInput = "a";
@@ -213,7 +213,7 @@ namespace CalculatorTest
         [InlineData(0,13,0,"*", "0 * 13 = 0")]
         [InlineData(-50,-50,0,"-", "-50 - -50 = 0")]
         [InlineData(20,5,4,"/", "20 / 5 = 4")]
-        public void PrintResultTest(decimal num1, decimal num2, decimal calculationResult, string calcType, string expectedResult)
+        public void PrintResult_Test(decimal num1, decimal num2, decimal calculationResult, string calcType, string expectedResult)
         {
             // Act + Assert
             Assert.Equal(expectedResult, Calculator.PrintResult(num1, num2, calculationResult, calcType));

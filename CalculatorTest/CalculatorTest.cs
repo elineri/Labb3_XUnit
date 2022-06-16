@@ -219,21 +219,22 @@ namespace CalculatorTest
             Assert.Equal(expectedResult, Calculator.PrintResult(num1, num2, calculationResult, calcType));
         }
 
-        //[Fact]
-        //public void PrintAllCalculations()
-        //{
-        //    // Arrange
-        //    List<string> testList = new List<string>() { "", "", "", "" };
-        //    var expected = 4;
+        [Fact]
+        [Trait("Category", "Print all calculations")]
+        public void PrintAllCalculations_Return_4()
+        {
+            // Arrange
+            List<string> testList = new List<string>() { "1 + 1 = 2", 
+                "2 - 2 = 0", 
+                "10 / 2 = 5", 
+                "10 * 10 = 100" };
+            var expected = 4;
 
-        //    // Act
-        //    //var actual = Calculator.PrintAllCalculations(testList);
+            // Act
+            var actual = Calculator.PrintAllCalculations(testList);
 
-        //    for (int i = 0; i <= Calculator.PrintAllCalculations(testList); i++)
-        //    {
-
-        //    }
-        //}
-
+            // Assert
+            Assert.Equal(expected, actual);
+        }
     }
 }

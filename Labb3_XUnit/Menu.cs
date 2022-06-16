@@ -35,6 +35,7 @@ namespace Labb3_XUnit
                     catch (Exception)
                     {
                         Console.Write("  Please enter a number between [1-5]: ");
+                        validSelection = false;
                     }
                     if ((select < 1 || select > 5) && validSelection == true)
                     {

@@ -34,7 +34,7 @@ namespace Labb3_XUnit
         {
             if (num2 == 0)
             {
-                throw new ArgumentException(nameof(num2));
+                throw new ArgumentException("  A number can't be divided with 0.");
             }
 
             decimal result = Math.Round(num1 / num2, 5);
@@ -53,12 +53,16 @@ namespace Labb3_XUnit
             return calculation;
         }
 
-        public static void PrintAllCalculations(List<string> calculations)
+        public static int PrintAllCalculations(List<string> calculations)
         {
+            int numOfCalculations = 0;
             foreach (var calculation in calculations)
             {
                 Console.WriteLine("  " + calculation);
+                numOfCalculations++;
             }
+
+            return numOfCalculations;
         }
     }
 }

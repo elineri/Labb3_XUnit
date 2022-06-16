@@ -25,12 +25,13 @@ namespace CalculatorTest
 
         [Theory]
         [Trait("Category", "Addition")]
-        [InlineData(50, 50, 100)]
+        [InlineData(50.2, 50, 100.2)]
         [InlineData(13, 7, 20)]
         [InlineData(5, -1, 4)]
         [InlineData(-5, 5, 0)]
         [InlineData(1, 0, 1)]
-        public void Add_Numbers(double num1, double num2, double expectedResult)
+        [InlineData(-5, -5, -10)]
+        public void Add_Numbers(decimal num1, decimal num2, decimal expectedResult)
         {
             // Act
             var actual = Calculator.Addition(num1, num2);
@@ -57,13 +58,13 @@ namespace CalculatorTest
 
         [Theory]
         [Trait("Category", "Subtraction")]
-        [InlineData(50, 25, 25)]
+        [InlineData(50.2, 25, 25.2)]
         [InlineData(50, -25, 75)]
         [InlineData(-50, -50, 0)]
         [InlineData(0, -50, 50)]
         [InlineData(100, 100, 0)]
         [InlineData(-50, 25, -75)]
-        public void Subtract_Numbers(double num1, double num2, double expectedResult)
+        public void Subtract_Numbers(decimal num1, decimal num2, decimal expectedResult)
         {
             // Act
             var actual = Calculator.Subtraction(num1, num2);
@@ -98,17 +99,17 @@ namespace CalculatorTest
             int num2 = 0;
 
             // Act + Assert
-            Assert.Throws<ArgumentNullException>(() => Calculator.Division(num1, num2));
+            Assert.Throws<ArgumentException>(() => Calculator.Division(num1, num2));
         }
 
         [Theory]
         [Trait("Category", "Divison")]
         [InlineData(20, 2, 10)]
-        [InlineData(4, 3, 1.3333333333333333)]
+        [InlineData(4, 3, 1.33333)]
         [InlineData(6, 5, 1.2)]
         [InlineData(-10, 5, -2)]
         [InlineData(82, 4, 20.5)]
-        public void Divide_Numbers(double num1, double num2, double expectedResult)
+        public void Divide_Numbers(decimal num1, decimal num2, decimal expectedResult)
         {
             // Act
             var actual = Calculator.Division(num1, num2);
@@ -140,7 +141,7 @@ namespace CalculatorTest
         [InlineData(6.3, 7.1, 44.73)]
         [InlineData(0, 5, 0)]
         [InlineData(64, 125, 8000)]
-        public void Multiply_Numbers(double num1, double num2, double expectedResult)
+        public void Multiply_Numbers(decimal num1, decimal num2, decimal expectedResult)
         {
             // Act
             var actual = Calculator.Multiplication(num1, num2);
@@ -151,7 +152,7 @@ namespace CalculatorTest
 
         [Fact]
         [Trait("Category", "User input")]
-        public void UserInput_string_Return_type_double()
+        public void UserInput_string_Return_type_decimal()
         {
             // Arrange
             string testInput = "3,2";
@@ -160,7 +161,7 @@ namespace CalculatorTest
             var actual = Calculator.UserInput(testInput);
 
             // Assert
-            Assert.IsType<double>(actual);
+            Assert.IsType<decimal>(actual);
         }
 
         [Theory]
@@ -170,22 +171,31 @@ namespace CalculatorTest
         [InlineData("0,4", 0.4)]
         [InlineData("-0,4", -0.4)]
         [InlineData("0", 0)]
-        public void UserInput(string testinput, double expectedResult)
+        public void UserInput(string testinput, decimal expectedResult)
         {
             // Act + Assert
             Assert.Equal(expectedResult, Calculator.UserInput(testinput));
         }
 
-        //TODO: Exception UserInput for other than double
+        [Fact]
+        [Trait("Category", "User input")]
+        public void UserInput_Not_a_number_input_Throws()
+        {
+            // Assert
+            string testInput = "a";
+
+            // Act + Assert
+            Assert.Throws<ArgumentException>(() => Calculator.UserInput(testInput));
+        }
 
         [Fact]
         [Trait("Category", "Print result")]
         public void PrintResult_10_Divided_With_5_Is_2()
         {
             // Arrange
-            double testNum1 = 10;
-            double testNum2 = 5;
-            double calculationResult = 2;
+            decimal testNum1 = 10;
+            decimal testNum2 = 5;
+            decimal calculationResult = 2;
             string calcType = "/";
             var expected = "10 / 5 = 2";
 
@@ -200,10 +210,30 @@ namespace CalculatorTest
         [Trait("Category", "Print result")]
         [InlineData(100,13,113,"+", "100 + 13 = 113")]
         [InlineData(100,13,87,"-", "100 - 13 = 87")]
-        public void PrintResultTest(double num1, double num2, double calculationResult, string calcType, string expectedResult)
+        [InlineData(0,13,0,"*", "0 * 13 = 0")]
+        [InlineData(-50,-50,0,"-", "-50 - -50 = 0")]
+        [InlineData(20,5,4,"/", "20 / 5 = 4")]
+        public void PrintResultTest(decimal num1, decimal num2, decimal calculationResult, string calcType, string expectedResult)
         {
             // Act + Assert
             Assert.Equal(expectedResult, Calculator.PrintResult(num1, num2, calculationResult, calcType));
         }
+
+        //[Fact]
+        //public void PrintAllCalculations()
+        //{
+        //    // Arrange
+        //    List<string> testList = new List<string>() { "", "", "", "" };
+        //    var expected = 4;
+
+        //    // Act
+        //    //var actual = Calculator.PrintAllCalculations(testList);
+
+        //    for (int i = 0; i <= Calculator.PrintAllCalculations(testList); i++)
+        //    {
+
+        //    }
+        //}
+
     }
 }

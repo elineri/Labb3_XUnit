@@ -6,38 +6,49 @@ namespace Labb3_XUnit
 {
     public class Calculator
     {
-        public static double UserInput(string num)
+        public static decimal UserInput(string num)
         {
-            return Double.Parse(num);
+            try
+            {
+                decimal.Parse(num);
+            }
+            catch (Exception)
+            {
+                throw new ArgumentException("  Must be a number.");
+            }
+
+            return decimal.Parse(num);
         }
 
-        public static double Addition(double num1, double num2)
+        public static decimal Addition(decimal num1, decimal num2)
         {
             return num1 + num2;
         }
 
-        public static double Subtraction(double num1, double num2)
+        public static decimal Subtraction(decimal num1, decimal num2)
         {
             return num1 - num2;
         }
 
-        public static double Division(double num1, double num2)
+        public static decimal Division(decimal num1, decimal num2)
         {
             if (num2 == 0)
             {
-                throw new ArgumentNullException(nameof(num2));
+                throw new ArgumentException(nameof(num2));
             }
-            return num1 / num2;
+
+            decimal result = Math.Round(num1 / num2, 5);
+            return result;
         }
 
-        public static double Multiplication(double num1, double num2)
+        public static decimal Multiplication(decimal num1, decimal num2)
         {
             return num1 * num2;
         }
 
-        public static string PrintResult(double num1, double num2, double result, string calcType)
+        public static string PrintResult(decimal num1, decimal num2, decimal result, string calcType)
         {
-            Console.Write($"  {num1} {calcType} {num2} = {result}");
+            Console.Write($"\n  {num1} {calcType} {num2} = {result}");
             string calculation = num1.ToString() + " " + calcType + " " + num2.ToString() + " = " + result.ToString(); 
             return calculation;
         }
